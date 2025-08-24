@@ -6,3 +6,5 @@
 
 [node name="Skapad av Anton" type="Sprite2D" parent="."]
 texture = ExtResource("1_37kl0")
+
+[node name="Skapad av Albin" type="Node2D" parent="."]
