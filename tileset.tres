@@ -1,7 +1,7 @@
 [gd_resource type="MeshLibrary" load_steps=24 format=4 uid="uid://bjb182hfoalic"]
 
-[ext_resource type="Texture2D" uid="uid://dxgivgmbaaot8" path="res://tileset_atlas.png" id="1_ej02t"]
-[ext_resource type="Texture2D" uid="uid://bpr504d73526f" path="res://tileset_atlas_n.png" id="2_14fb3"]
+[ext_resource type="Texture2D" uid="uid://dxgivgmbaaot8" path="res://Assets/Textures/tileset_atlas.png" id="1_ej02t"]
+[ext_resource type="Texture2D" uid="uid://bpr504d73526f" path="res://Assets/Textures/tileset_atlas_n.png" id="2_14fb3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b128f"]
 resource_name = "Material.001"
