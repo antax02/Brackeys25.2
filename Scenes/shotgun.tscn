@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5llc57ifpgaa"]
+
+[ext_resource type="PackedScene" uid="uid://dq7tgwkaxeot5" path="res://Assets/Models/shotgun.glb" id="1_0ym6k"]
+[ext_resource type="Script" uid="uid://chpx1vqcpl84s" path="res://scripts/shotgun.gd" id="2_u0ide"]
+[ext_resource type="Texture2D" uid="uid://cib1167ptof3v" path="res://Assets/Decals/bullet-hole.png" id="3_8claw"]
+[ext_resource type="AudioStream" uid="uid://dlos3bti082ff" path="res://Assets/SFX/shotgun-shot.wav" id="4_voe37"]
+[ext_resource type="AudioStream" uid="uid://o8c0ednykpve" path="res://Assets/SFX/shotgun-click.wav" id="5_amvni"]
+
+[node name="gun" instance=ExtResource("1_0ym6k")]
+script = ExtResource("2_u0ide")
+bullet_hole_texture = ExtResource("3_8claw")
+decal_size = Vector3(0.1, 0.1, 0.1)
+fire_sound = ExtResource("4_voe37")
+empty_click_sound = ExtResource("5_amvni")
+
+[node name="Super Shotgun" parent="." index="0"]
+transform = Transform3D(-0.015, -2.26494e-09, 9.90035e-17, 0, -6.55671e-10, -0.015, 2.26494e-09, -0.015, 6.55671e-10, 0.00123399, 0, 0.000933409)
+
+[node name="MuzzlePoint" type="Node3D" parent="." index="1"]
+transform = Transform3D(0.126387, 0, 0, 0, 0, -0.126387, 0, 0.126387, 0, 0.000413537, -0.00105059, -0.880696)
+
+[node name="MuzzleFlash" type="OmniLight3D" parent="MuzzlePoint" index="0"]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="2"]
+
+[node name="ClickAudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="3"]
