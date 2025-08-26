@@ -11,7 +11,7 @@ extends Node3D
 
 # === VISUAL EFFECTS ===
 @export var muzzle_flash_intensity = 4.0
-@export var muzzle_flash_duration = 0.06
+@export var muzzle_flash_duration = 0.04
 @export var muzzle_flash_color = Color.LIGHT_GOLDENROD
 
 @export var recoil_strength = 0.15

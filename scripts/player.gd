@@ -14,7 +14,7 @@ extends CharacterBody3D
 
 # === HEADBOB SETTINGS ===
 @export var headbob_enabled = true
-@export var headbob_intensity = 0.03
+@export var headbob_intensity = 0.02
 @export var headbob_frequency = 2.0
 @export var headbob_sprint_multiplier = 1.4
 @export var headbob_tilt_intensity = 0.5
