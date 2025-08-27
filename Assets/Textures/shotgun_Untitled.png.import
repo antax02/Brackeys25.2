@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://do7v7gykw7wsf"
-path.s3tc="res://.godot/imported/tileset_atlas.png-3f06119c0b2b656f257076fbace61147.s3tc.ctex"
+uid="uid://nc0d06n6j1s7"
+path.s3tc="res://.godot/imported/shotgun_Untitled.png-6ad10383221afc7e8cf39a7da1264a29.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "9edb3bfd91bf4d345d13f4c69a266741"
+"md5": "b006361fef10d942b0217171960cdbb3"
 }
 
 [deps]
 
-source_file="res://Assets/Models/tileset_atlas.png"
-dest_files=["res://.godot/imported/tileset_atlas.png-3f06119c0b2b656f257076fbace61147.s3tc.ctex"]
+source_file="res://Assets/Textures/shotgun_Untitled.png"
+dest_files=["res://.godot/imported/shotgun_Untitled.png-6ad10383221afc7e8cf39a7da1264a29.s3tc.ctex"]
 
 [params]
 

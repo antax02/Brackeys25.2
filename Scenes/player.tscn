@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ddu27pebvhb26"]
 
-[ext_resource type="Script" uid="uid://b55mq7rdboakl" path="res://scripts/player.gd" id="1_v0iea"]
+[ext_resource type="Script" uid="uid://b55mq7rdboakl" path="res://Scripts/player.gd" id="1_v0iea"]
 [ext_resource type="PackedScene" uid="uid://c5llc57ifpgaa" path="res://Scenes/shotgun.tscn" id="2_cvnsp"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_f60y1"]
@@ -12,6 +12,8 @@ radius = 0.2
 height = 1.0
 
 [node name="Player" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_v0iea")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
