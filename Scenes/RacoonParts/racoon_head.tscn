@@ -222,10 +222,10 @@ points = PackedVector3Array(0.609537, -0.240526, -0.000604272, 0.285357, 0.23218
 collision_layer = 8
 
 [node name="Head" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 1.9129, 1.36649, 0.00060434)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 mesh = SubResource("ArrayMesh_stax8")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 1.9129, 1.36649, 0.00060434)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_0n6ui")

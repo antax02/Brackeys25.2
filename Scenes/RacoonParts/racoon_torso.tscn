@@ -137,10 +137,10 @@ points = PackedVector3Array(-0.196402, 1.39714, -0.000168145, -0.277406, 1.14957
 collision_layer = 8
 
 [node name="Thorso" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.0943394, 1.37239, 1.1379e-05)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 mesh = SubResource("ArrayMesh_sybh5")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.0943394, 1.37239, 1.1379e-05)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_5rwyj")

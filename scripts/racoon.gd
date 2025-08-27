@@ -13,7 +13,7 @@ var part_scenes = [
 ]
 
 @export var max_health = 100 
-@export var explosion_force: float = 10.0
+@export var explosion_force: float = 30
 
 @onready var mesh_instance = $MeshInstance3D
 
@@ -34,9 +34,8 @@ func _physics_process(delta: float) -> void:
 func explode_into_parts():
 	mesh_instance.visible = false
 	
-	var player = get_tree().get_first_node_in_group("Player")
+	var player = get_node("%Player")
 	if not player:
-
 		_explode_randomly()
 		return
 	
@@ -49,11 +48,11 @@ func explode_into_parts():
 		
 		var away_from_player = (global_position - player_position).normalized()
 		
-		var random_angle_degrees = randf_range(-5.0, 5.0)  # Adjust this for more/less randomness
+		var random_angle_degrees = randf_range(-35.0, 35.0)
 		var random_rotation = deg_to_rad(random_angle_degrees)
 		
 		var perpendicular = Vector3.UP.cross(away_from_player).normalized()
-		if perpendicular.length() < 0.1:  # Handle edge case where away_from_player is parallel to UP
+		if perpendicular.length() < 0.1:
 			perpendicular = Vector3.RIGHT.cross(away_from_player).normalized()
 		
 		var final_direction = away_from_player.rotated(perpendicular, random_rotation)
@@ -62,7 +61,7 @@ func explode_into_parts():
 		final_direction = final_direction.normalized()
 		
 		if part is RigidBody3D:
-			part.apply_impulse(final_direction * explosion_force)
+			part.apply_impulse(final_direction * explosion_force, Vector3.ZERO)
 
 func _explode_randomly():
 	for part_scene in part_scenes:
@@ -77,7 +76,7 @@ func _explode_randomly():
 		).normalized()
 		
 		if part is RigidBody3D:
-			part.apply_impulse(random_direction * explosion_force)
+			part.apply_impulse(random_direction * explosion_force, Vector3.ZERO)
 	
 func take_damage(damage: int):
 	health -= damage
