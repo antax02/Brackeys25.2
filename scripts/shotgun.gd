@@ -1,11 +1,11 @@
 extends Node3D
 
 # === WEAPON STATS ===
-@export var damage_per_pellet = 8
+@export var damage_per_pellet = 20
 @export var pellet_count = 8
 @export var fire_rate = 0.3
 @export var max_range = 50.0
-@export var spread_angle = 12.0
+@export var spread_angle = 9.0
 @export var max_ammo = 2
 @export var reload_time = 0.5
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://djvtddpmoidho"]
+[gd_scene load_steps=7 format=3 uid="uid://djvtddpmoidho"]
 
 [ext_resource type="MeshLibrary" uid="uid://bjb182hfoalic" path="res://tileset.tres" id="1_a02cp"]
 [ext_resource type="PackedScene" uid="uid://ddu27pebvhb26" path="res://Scenes/player.tscn" id="2_go701"]
+[ext_resource type="PackedScene" uid="uid://c1scmvbv3giul" path="res://Scenes/racoon.tscn" id="3_5a7ea"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -39,3 +40,6 @@ metadata/_editor_floor_ = Vector3(0, -1, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_go701")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0057987, -0.254326, 0.132791)
+
+[node name="Racoon" parent="." instance=ExtResource("3_5a7ea")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.293875, -0.199999, -7.36365)
