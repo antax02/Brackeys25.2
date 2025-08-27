@@ -83,7 +83,8 @@ func take_damage(damage: int):
 	
 	if health <= 0:
 		die()
-	
+
+
 	
 func die():
 	if not is_dead:
