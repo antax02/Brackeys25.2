@@ -7,7 +7,7 @@ extends Node3D
 @export var max_range = 50.0
 @export var spread_angle = 12.0
 @export var max_ammo = 2
-@export var reload_time = 1.8
+@export var reload_time = 0.5
 
 # === VISUAL EFFECTS ===
 @export var muzzle_flash_intensity = 4.0
