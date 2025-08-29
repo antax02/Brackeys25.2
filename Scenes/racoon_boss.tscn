@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://rqpxce8i87vg"]
+
+[ext_resource type="Script" uid="uid://ne66jj1we0i8" path="res://Scripts/racoon_boss.gd" id="1_s64gm"]
+[ext_resource type="PackedScene" uid="uid://dlcrs7j7rwhrg" path="res://Scenes/biscut.tscn" id="2_wqffp"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_5yqqp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wqffp"]
+
+[node name="RacoonBoss" type="CharacterBody3D"]
+script = ExtResource("1_s64gm")
+biscuit_scene = ExtResource("2_wqffp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_5yqqp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_wqffp")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]

@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://do22h3b0bo6t2"]
+
+[ext_resource type="Texture2D" uid="uid://nc0d06n6j1s7" path="res://Assets/Textures/shotgun_Untitled.png" id="1_2tbdf"]
+[ext_resource type="PackedScene" uid="uid://ddu27pebvhb26" path="res://Scenes/player.tscn" id="1_ofpwi"]
+[ext_resource type="PackedScene" uid="uid://rqpxce8i87vg" path="res://Scenes/racoon_boss.tscn" id="2_bbxh1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mxw1n"]
+albedo_texture = ExtResource("1_2tbdf")
+
+[sub_resource type="BoxMesh" id="BoxMesh_fvl64"]
+size = Vector3(20, 0.1, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bbxh1"]
+size = Vector3(20, 0.1, 20)
+
+[node name="BossTest" type="Node"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+material_override = SubResource("StandardMaterial3D_mxw1n")
+mesh = SubResource("BoxMesh_fvl64")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_bbxh1")
+
+[node name="Player" parent="." instance=ExtResource("1_ofpwi")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000603676, -0.00516862, 6.32916)
+
+[node name="RacoonBoss" parent="." instance=ExtResource("2_bbxh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0672617, 0.55, -6.88766)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0171732, 0.999853, 0, -0.999853, 0.0171732, 0, 4.23834, 0)

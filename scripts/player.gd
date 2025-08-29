@@ -32,6 +32,7 @@ var headbob_time = 0.0
 var headbob_offset = Vector3.ZERO
 var headbob_tilt = 0.0
 var original_camera_position: Vector3
+var health = 200
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -61,10 +62,6 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
 	
-	# Check sprint conditions
-	is_sprinting = Input.is_action_pressed("sprint") and is_on_floor() and weapon.can_player_run()
-	var current_speed = sprint_speed if is_sprinting else speed
-	
 	# Get movement input
 	var input_dir = Vector2.ZERO
 	if is_on_floor() or air_control:
@@ -76,8 +73,11 @@ func _physics_process(delta):
 			input_dir.y -= 1
 		if Input.is_action_pressed("move_backward"):
 			input_dir.y += 1
-		
 		input_dir = input_dir.normalized()
+	
+	var is_moving_backward = Input.is_action_pressed("move_backward") and not Input.is_action_pressed("move_forward")
+	is_sprinting = Input.is_action_pressed("sprint") and is_on_floor() and weapon.can_player_run() and not is_moving_backward
+	var current_speed = sprint_speed if is_sprinting else speed
 	
 	# Convert input to world direction
 	var direction = Vector3.ZERO
@@ -140,6 +140,17 @@ func update_headbob(delta: float, input_dir: Vector2):
 	camera.position = original_camera_position + headbob_offset
 	camera.rotation.z = headbob_tilt
 
+func take_damage(amount: float):
+	health -= amount
+	if (health <= 0):
+		die()
+	
+func add_trauma(amount: float):
+	pass
+	
+func die():
+	print(die)
+	
 # === UTILITY FUNCTIONS ===
 func get_move_speed():
 	return Vector2(velocity.x, velocity.z).length()

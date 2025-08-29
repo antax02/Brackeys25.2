@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=4 uid="uid://c1scmvbv3giul"]
 
-[ext_resource type="Script" uid="uid://dutpmpnxefw2x" path="res://scripts/racoon.gd" id="1_6goac"]
+[ext_resource type="Script" uid="uid://dutpmpnxefw2x" path="res://Scripts/racoon.gd" id="1_6goac"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6goac"]
 

@@ -22,5 +22,5 @@ fog_density = 0.0302
 
 [node name="WorldEnviroment" type="Node3D"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment2" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_g7kk1")
