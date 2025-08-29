@@ -3,7 +3,7 @@
 [ext_resource type="MeshLibrary" uid="uid://bjb182hfoalic" path="res://tileset.tres" id="1_a02cp"]
 [ext_resource type="PackedScene" uid="uid://ddu27pebvhb26" path="res://Scenes/player.tscn" id="2_go701"]
 [ext_resource type="PackedScene" uid="uid://c1scmvbv3giul" path="res://Scenes/racoon.tscn" id="3_5a7ea"]
-[ext_resource type="MeshLibrary" uid="uid://bh3jop3apud3b" path="res://navtile.tres" id="4_8j60k"]
+[ext_resource type="MeshLibrary" uid="uid://ctphd7lpj7vpu" path="res://navtile.tres" id="4_8j60k"]
 
 [sub_resource type="Environment" id="Environment_8j60k"]
 background_mode = 2

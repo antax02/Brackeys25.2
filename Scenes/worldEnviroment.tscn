@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dso15tacboss3"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6tfox"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_fj7yv"]
+sky_material = SubResource("ProceduralSkyMaterial_6tfox")
+
+[sub_resource type="Environment" id="Environment_g7kk1"]
+background_mode = 2
+sky = SubResource("Sky_fj7yv")
+ambient_light_color = Color(0.777433, 0.73878, 0.622822, 1)
+ambient_light_sky_contribution = 0.0
+ambient_light_energy = 0.02
+tonemap_mode = 2
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.741168, 0.777433, 0.5988, 1)
+fog_light_energy = 0.02
+fog_density = 0.0302
+
+[node name="WorldEnviroment" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_g7kk1")

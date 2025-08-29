@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Brackeys25.2"
-run/main_scene="uid://vqrvqcxswxy3"
+run/main_scene="uid://djvtddpmoidho"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -22,6 +22,10 @@ window/size/viewport_height=240
 window/size/window_width_override=1280
 window/size/window_height_override=960
 window/stretch/mode="viewport"
+
+[global_group]
+
+player=""
 
 [input]
 

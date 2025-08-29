@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://bkqv1777wrm5t"]
+
+[ext_resource type="MeshLibrary" path="res://pathFindFloor.tres" id="1_8j5ex"]
+[ext_resource type="PackedScene" uid="uid://c1scmvbv3giul" path="res://Scenes/racoon.tscn" id="2_8j5ex"]
+[ext_resource type="PackedScene" uid="uid://ddu27pebvhb26" path="res://Scenes/player.tscn" id="2_d8e5e"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_d8e5e"]
+vertices = PackedVector3Array(1.51464, 1.33845, -11.75, 1.51464, 1.33845, -13.5, 0.264641, 1.33845, -13.5, 0.0146408, 1.33845, -11.5, 3.51464, 1.33845, -9, 3.51464, 1.33845, -11.5, -1.73536, 1.33845, -9, -1.73536, 1.33845, -11.5, -7.98536, 1.83845, -8, -7.98536, 1.83845, 15.75, 12.2646, 1.83845, 15.75, 12.2646, 1.83845, -8)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(0, 5, 3), PackedInt32Array(3, 5, 4), PackedInt32Array(3, 4, 6), PackedInt32Array(6, 7, 3), PackedInt32Array(11, 10, 8), PackedInt32Array(8, 10, 9)]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8j5ex"]
+size = Vector3(21.1598, 1, 24.515)
+
+[node name="NavTest" type="Node3D"]
+
+[node name="Racoon" parent="." instance=ExtResource("2_8j5ex")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44364, -2.35611)
+
+[node name="Player" parent="." instance=ExtResource("2_d8e5e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.08132, 0)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_d8e5e")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.838447, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.09454, 0, 3.92059)
+shape = SubResource("BoxShape3D_8j5ex")
+
+[node name="GridMap" type="GridMap" parent="NavigationRegion3D"]
+mesh_library = ExtResource("1_8j5ex")
+data = {
+"cells": PackedInt32Array(65535, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 2, 0, 65535, 1, 0, 65534, 1, 0, 65534, 0, 0, 65534, 2, 0, 65534, 3, 0, 65535, 3, 0, 0, 3, 0, 1, 3, 0, 2, 3, 0, 2, 2, 0, 3, 2, 0, 3, 1, 0, 3, 0, 0, 3, 65535, 0, 2, 65535, 0, 2, 0, 0, 65535, 4, 0, 0, 4, 0, 1, 4, 0, 1, 2, 0, 2, 1, 0, 3, 3, 0, 3, 4, 0, 2, 4, 0, 2, 5, 0, 1, 5, 0, 0, 5, 0, 65535, 5, 0, 65534, 4, 0, 65535, 2, 0, 65534, 5, 0, 65533, 5, 0, 65533, 4, 0, 65532, 4, 0, 65532, 3, 0, 65532, 2, 0, 65532, 1, 0, 65533, 1, 0, 65533, 0, 0, 65533, 65535, 0, 65533, 65534, 0, 65534, 65534, 0, 65534, 65533, 0, 65534, 65532, 0, 65535, 65532, 0, 65535, 65531, 0, 0, 65530, 0, 1, 65530, 0, 1, 65531, 0, 2, 65532, 0, 2, 65533, 0, 2, 65534, 0, 3, 65534, 0, 65533, 3, 0, 65533, 2, 0, 0, 65535, 0, 65535, 65535, 0, 65535, 65534, 0, 65535, 65533, 0, 0, 65532, 0, 65535, 65530, 0, 0, 65529, 0, 0, 65531, 0, 1, 65532, 0, 1, 65533, 0, 1, 65534, 0, 1, 65535, 0, 0, 65534, 0, 0, 65533, 0, 65534, 65535, 0, 3, 5, 0)
+}
