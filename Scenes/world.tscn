@@ -48,6 +48,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0057987, -0.254326, 0.1327
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.293875, -0.199999, -7.36365)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+visible = false
 navigation_mesh = SubResource("NavigationMesh_5a7ea")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="NavigationRegion3D"]
