@@ -1,30 +1,22 @@
-[gd_scene load_steps=10 format=3 uid="uid://djvtddpmoidho"]
+[gd_scene load_steps=8 format=3 uid="uid://djvtddpmoidho"]
 
 [ext_resource type="MeshLibrary" uid="uid://bjb182hfoalic" path="res://tileset.tres" id="1_a02cp"]
 [ext_resource type="PackedScene" uid="uid://ddu27pebvhb26" path="res://Scenes/player.tscn" id="2_go701"]
 [ext_resource type="PackedScene" uid="uid://c1scmvbv3giul" path="res://Scenes/racoon.tscn" id="3_5a7ea"]
 [ext_resource type="MeshLibrary" uid="uid://bh3jop3apud3b" path="res://navtile.tres" id="4_8j60k"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
-sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
-ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
-
-[sub_resource type="Sky" id="Sky_fj7yv"]
-sky_material = SubResource("ProceduralSkyMaterial_f3sb7")
-
-[sub_resource type="Environment" id="Environment_tlwt5"]
+[sub_resource type="Environment" id="Environment_8j60k"]
 background_mode = 2
-sky = SubResource("Sky_fj7yv")
-ambient_light_color = Color(0.777433, 0.73878, 0.622822, 1)
+ambient_light_color = Color(0.629012, 0.695313, 0.531536, 1)
 ambient_light_sky_contribution = 0.0
-ambient_light_energy = 0.0
-tonemap_mode = 2
-tonemap_exposure = 0.25
-glow_enabled = true
+ambient_light_energy = 0.02
 fog_enabled = true
-fog_light_color = Color(0.741168, 0.777433, 0.5988, 1)
-fog_light_energy = 0.1
-fog_density = 0.0679
+fog_light_color = Color(0.533843, 0.608, 0.505462, 1)
+fog_light_energy = 0.02
+fog_density = 0.2
+volumetric_fog_albedo = Color(0, 0, 0, 1)
+adjustment_enabled = true
+adjustment_brightness = 1.15
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_8j60k"]
 vertices = PackedVector3Array(-13.5, 0.3, -20, -10.5, 0.3, -20, -10.25, 0.3, -22.5, -13.5, 0.3, -25.5, -1.75, 0.3, -22.5, -1.5, 0.3, -20, 1.5, 0.3, -20, 1.5, 0.3, -25.5, -10.25, 0.3, -17.5, -13.5, 0.3, -14.5, -3.75, 0.3, -14.5, -3.75, 0.3, -17.5, -1.5, 0.3, -14.25, -1.5, 0.3, -12, 1.5, 0.3, -12, 1.5, 0.3, -14.25, 3.75, 0.3, -14.5, 3.75, 0.3, -17.5, 1.5, 0.3, -17.75, -1.5, 0.3, -17.75, 8.25, 0.3, -14.5, 8.5, 0.3, -12.25, 11.5, 0.3, -12.25, 11.5, 0.3, -17.5, 8.5, 0.3, 2.25, 11.5, 0.3, 2.25, -1.5, 0.3, -0.25, 1.5, 0.3, -0.25, 1.5, 0.3, -2.25, -1.5, 0.3, -2.25, -3.5, 0.3, -2.5, 1.5, 0.3, -9.75, -1.5, 0.3, -9.75, 3.5, 0.3, -2.5, 3.5, 0.3, -9.5, -3.5, 0.3, -9.5, 3.75, 0.3, 7.5, 3.75, 0.3, 4.5, 1.5, 0.3, 4.25, -1.5, 0.3, 4.25, -4, 0.3, 4.5, -4, 0.3, 7.5, 8.25, 0.3, 4.5, 11.5, 0.3, 7.5, -6.5, 0.3, 7.75, -9.5, 0.3, 4.5, -9.5, 0.3, 12.25, -6.5, 0.3, 12.25, -6.5, 0.3, 17.75, -4.5, 0.3, 17.5, -4.5, 0.3, 16.5, -6.5, 0.3, 16.25, -9.75, 0.3, 17.5, -9.5, 0.3, 14.25, -11.5, 0.3, 14.5, -11.5, 0.3, 17.5, -9.5, 0.3, 19.5, -6.5, 0.3, 19.5)
@@ -36,7 +28,7 @@ size = Vector3(100, 0.1, 100)
 [node name="World" type="Node"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_tlwt5")
+environment = SubResource("Environment_8j60k")
 
 [node name="Player" parent="." instance=ExtResource("2_go701")]
 unique_name_in_owner = true
@@ -44,6 +36,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0057987, -0.254326, -6.128
 
 [node name="Racoon" parent="." instance=ExtResource("3_5a7ea")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8943, 0.0947342, -23.8819)
+collision_layer = 1
+
+[node name="Racoon2" parent="." instance=ExtResource("3_5a7ea")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.7754, 0.0947342, -16.1693)
+collision_layer = 1
+
+[node name="Racoon3" parent="." instance=ExtResource("3_5a7ea")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.48953, 0.0947351, -13.1116)
+collision_layer = 1
+
+[node name="Racoon4" parent="." instance=ExtResource("3_5a7ea")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.65776, 0.0947351, 5.64247)
+collision_layer = 1
+
+[node name="Racoon5" parent="." instance=ExtResource("3_5a7ea")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.19594, 0.108113, 18.5053)
 collision_layer = 1
 
 [node name="GridMap" type="GridMap" parent="."]

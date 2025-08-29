@@ -17,7 +17,7 @@ empty_click_sound = ExtResource("5_amvni")
 transform = Transform3D(-0.015, -2.26494e-09, 9.90035e-17, 0, -6.55671e-10, -0.015, 2.26494e-09, -0.015, 6.55671e-10, 0.00123399, 0, 0.000933409)
 
 [node name="MuzzlePoint" type="Node3D" parent="." index="1"]
-transform = Transform3D(0.126387, 0, 0, 0, 0, -0.126387, 0, 0.126387, 0, 0.000413537, -0.00105059, -0.880696)
+transform = Transform3D(0.126387, 0, 0, 0, 0, -0.126387, 0, 0.126387, 0, 0.000413537, -0.00105059, -0.450259)
 
 [node name="MuzzleFlash" type="OmniLight3D" parent="MuzzlePoint" index="0"]
 
