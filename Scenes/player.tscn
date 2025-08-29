@@ -9,11 +9,10 @@ height = 1.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v0iea"]
 radius = 0.2
-height = 1.0
+height = 1.2
 
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2
-collision_mask = 5
 script = ExtResource("1_v0iea")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -22,7 +21,7 @@ visible = false
 mesh = SubResource("CapsuleMesh_f60y1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 shape = SubResource("CapsuleShape3D_v0iea")
 
 [node name="CameraPivot" type="Node3D" parent="."]
@@ -40,3 +39,8 @@ spot_angle = 8.83691
 
 [node name="shotgun" parent="CameraPivot" instance=ExtResource("2_cvnsp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.152081, -0.0975167, -0.348256)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96046e-08, 0.735041, -0.737109)
+spot_range = 13.2051
+spot_angle = 24.1833

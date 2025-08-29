@@ -36,6 +36,7 @@ var original_camera_position: Vector3
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	original_camera_position = camera.position
+	add_to_group("player")
 
 func _input(event):
 	# Mouse look

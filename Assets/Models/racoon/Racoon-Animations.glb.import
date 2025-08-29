@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c5swghred1v4t"
-path="res://.godot/imported/plane.glb-95014bc0c86815f92366aac66bcfe9c9.scn"
+uid="uid://c4lxlsxv6qnku"
+path="res://.godot/imported/Racoon-Animations.glb-127d25abae810f6be7c51a53db438380.scn"
 
 [deps]
 
-source_file="res://Scenes/plane.glb"
-dest_files=["res://.godot/imported/plane.glb-95014bc0c86815f92366aac66bcfe9c9.scn"]
+source_file="res://Assets/Models/racoon/Racoon-Animations.glb"
+dest_files=["res://.godot/imported/Racoon-Animations.glb-127d25abae810f6be7c51a53db438380.scn"]
 
 [params]
 
