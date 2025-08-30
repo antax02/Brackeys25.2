@@ -144,13 +144,12 @@ func take_damage(amount: float):
 	health -= amount
 	if (health <= 0):
 		die()
-	print(health)
 	
 func add_trauma(amount: float):
 	pass
 	
 func die():
-	print(get_parent().name)
+	print(die)
 	
 # === UTILITY FUNCTIONS ===
 func get_move_speed():
