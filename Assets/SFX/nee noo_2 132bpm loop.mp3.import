@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://h0orot57xyvp"
+path="res://.godot/imported/nee noo_2 132bpm loop.mp3-95d2aedc4b5b9693410644adb019a80f.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/nee noo_2 132bpm loop.mp3"
+dest_files=["res://.godot/imported/nee noo_2 132bpm loop.mp3-95d2aedc4b5b9693410644adb019a80f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

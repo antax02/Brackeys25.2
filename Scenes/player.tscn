@@ -1,7 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://ddu27pebvhb26"]
+[gd_scene load_steps=7 format=3 uid="uid://ddu27pebvhb26"]
 
 [ext_resource type="Script" uid="uid://b55mq7rdboakl" path="res://Scripts/player.gd" id="1_v0iea"]
 [ext_resource type="PackedScene" uid="uid://c5llc57ifpgaa" path="res://Scenes/shotgun.tscn" id="2_cvnsp"]
+[ext_resource type="AudioStream" uid="uid://cg44vcvf1ur4" path="res://Assets/SFX/shotgun-shot-reverb.wav" id="3_6t5aa"]
+[ext_resource type="AudioStream" uid="uid://do0phen04pkqp" path="res://Assets/SFX/shotgun_reload-80210.mp3" id="4_vgqql"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_f60y1"]
 radius = 0.3
@@ -48,3 +51,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.152081, -0.0975167, -0.3482
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.736804, 0)
 shape = SubResource("SphereShape3D_cvnsp")
+
+fire_sound = ExtResource("3_6t5aa")
+reload_sound = ExtResource("4_vgqql")
