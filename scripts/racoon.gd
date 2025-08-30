@@ -31,6 +31,7 @@ var blood_textures = []
 @export var fov_angle: float = 360.0
 @export var patrol_wait_time: float = 3.0
 @export var lose_target_time: float = 5.0
+@export var attack_damage: float = 15.0
 
 # Patrol behavior settings
 @export_group("Patrol Settings")
@@ -367,10 +368,9 @@ func check_line_of_sight(player: CharacterBody3D) -> bool:
 func perform_attack():
 	if not target_player:
 		return
+	if target_player.has_method("take_damage"):
+		target_player.take_damage(attack_damage)
 	
-	print("Enemy attacking player!")
-	# Implement attack mechanics here
-	# Example: target_player.take_damage(10)
 
 func set_next_patrol_target():
 	if patrol_points.is_empty():
