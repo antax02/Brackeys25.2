@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://vqrvqcxswxy3"]
+[gd_scene load_steps=4 format=3 uid="uid://vqrvqcxswxy3"]
 
-[ext_resource type="Script" uid="uid://bwv4ej66rasow" path="res://Scripts/main_menu.gd" id="1_5pknu"]
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_5pknu"]
 [ext_resource type="FontFile" uid="uid://cl63wqayg36i6" path="res://Assets/Fonts/C64_Pro_Mono-STYLE.ttf" id="1_60k44"]
+[ext_resource type="AudioStream" uid="uid://bewliekyrpr7y" path="res://Assets/SFX/cherry.mp3" id="3_b7htb"]
 
 [node name="root" type="Control"]
 layout_mode = 3
@@ -68,6 +69,10 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_60k44")
 text = "Quit
 "
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_b7htb")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/ButtonPlay" to="." method="_on_button_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/ButtonCredits" to="." method="_on_button_credits_pressed"]

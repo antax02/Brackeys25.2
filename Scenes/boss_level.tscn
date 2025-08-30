@@ -23,6 +23,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96699, 1.14475, 9.83337)
 
 [node name="RacoonBoss" parent="." instance=ExtResource("2_1fajk")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.07625, 1.1716, -6.89054)
+max_health = 400.0
+damage = 5.0
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("3_y55xa")

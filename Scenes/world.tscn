@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://djvtddpmoidho"]
+[gd_scene load_steps=11 format=3 uid="uid://djvtddpmoidho"]
 
 [ext_resource type="Environment" uid="uid://xilh70wcqog1" path="res://world.tres" id="1_5ukr8"]
 [ext_resource type="MeshLibrary" uid="uid://bjb182hfoalic" path="res://tileset.tres" id="1_a02cp"]
@@ -7,6 +7,7 @@
 [ext_resource type="MeshLibrary" uid="uid://ctphd7lpj7vpu" path="res://navtile.tres" id="4_8j60k"]
 [ext_resource type="PackedScene" uid="uid://djb1yxe7rgv1w" path="res://Scenes/bars.tscn" id="5_fo5ed"]
 [ext_resource type="PackedScene" uid="uid://ddhsuis6kan0o" path="res://Scenes/door.tscn" id="7_o06y3"]
+[ext_resource type="AudioStream" uid="uid://h0orot57xyvp" path="res://Assets/SFX/nee noo_2 132bpm loop.mp3" id="8_k7acu"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_8j60k"]
 vertices = PackedVector3Array(-13.5, 0.3, -20, -10.5, 0.3, -20, -10.25, 0.3, -22.5, -13.5, 0.3, -25.5, -1.75, 0.3, -22.5, -1.5, 0.3, -20, 1.5, 0.3, -20, 1.5, 0.3, -25.5, -10.25, 0.3, -17.5, -13.5, 0.3, -14.5, -3.75, 0.3, -14.5, -3.75, 0.3, -17.5, -1.5, 0.3, -14.25, -1.5, 0.3, -12, 1.5, 0.3, -12, 1.5, 0.3, -14.25, 3.75, 0.3, -14.5, 3.75, 0.3, -17.5, 1.5, 0.3, -17.75, -1.5, 0.3, -17.75, 8.25, 0.3, -14.5, 8.5, 0.3, -12.25, 11.5, 0.3, -12.25, 11.5, 0.3, -17.5, 8.5, 0.3, 2.25, 11.5, 0.3, 2.25, -1.5, 0.3, -0.25, 1.5, 0.3, -0.25, 1.5, 0.3, -2.25, -1.5, 0.3, -2.25, -3.5, 0.3, -2.5, 1.5, 0.3, -9.75, -1.5, 0.3, -9.75, 3.5, 0.3, -2.5, 3.5, 0.3, -9.5, -3.5, 0.3, -9.5, 3.75, 0.3, 7.5, 3.75, 0.3, 4.5, 1.5, 0.3, 4.25, -1.5, 0.3, 4.25, -4, 0.3, 4.5, -4, 0.3, 7.5, 8.25, 0.3, 4.5, 11.5, 0.3, 7.5, -6.5, 0.3, 7.75, -9.5, 0.3, 4.5, -9.5, 0.3, 12.25, -6.5, 0.3, 12.25, -6.5, 0.3, 17.75, -4.5, 0.3, 17.5, -4.5, 0.3, 16.5, -6.5, 0.3, 16.25, -9.75, 0.3, 17.5, -9.5, 0.3, 14.25, -11.5, 0.3, 14.5, -11.5, 0.3, 17.5, -9.5, 0.3, 19.5, -6.5, 0.3, 19.5)
@@ -22,7 +23,11 @@ environment = ExtResource("1_5ukr8")
 
 [node name="Player" parent="." instance=ExtResource("2_go701")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0057987, -0.254326, 79.8456)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0869942, 0.506381, -3.67612)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Player"]
+stream = ExtResource("8_k7acu")
+autoplay = true
 
 [node name="Racoon" parent="." instance=ExtResource("3_5a7ea")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8943, 0.0947342, -23.8819)
