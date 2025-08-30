@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ddu27pebvhb26"]
+[gd_scene load_steps=6 format=3 uid="uid://ddu27pebvhb26"]
 
 [ext_resource type="Script" uid="uid://b55mq7rdboakl" path="res://Scripts/player.gd" id="1_v0iea"]
 [ext_resource type="PackedScene" uid="uid://c5llc57ifpgaa" path="res://Scenes/shotgun.tscn" id="2_cvnsp"]
@@ -10,6 +10,9 @@ height = 1.0
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v0iea"]
 radius = 0.2
 height = 1.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cvnsp"]
+radius = 1.2503
 
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2
@@ -39,3 +42,9 @@ spot_angle = 8.83691
 
 [node name="shotgun" parent="CameraPivot" instance=ExtResource("2_cvnsp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.152081, -0.0975167, -0.348256)
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.736804, 0)
+shape = SubResource("SphereShape3D_cvnsp")
