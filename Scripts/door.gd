@@ -3,7 +3,7 @@ extends Node3D
 
 @onready var hint = $Label
 var can_enter = false
-var boss_scene: PackedScene = preload("res://Scenes/boss_test.tscn")
+var boss_scene: PackedScene = preload("res://Scenes/boss_level.tscn")
 
 
 func _on_area_3d_area_entered(area: Area3D) -> void:

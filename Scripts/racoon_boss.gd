@@ -32,6 +32,11 @@ var player: Node3D
 var current_state := "IDLE"
 var attack_cooldown := 0.0
 
+# === ANIMATION SYSTEM ===
+var animation_player: AnimationPlayer
+var current_animation := ""
+var is_telegraphing := false
+
 # === LUNGE STATE ===
 var lunge_state := "NONE"
 var lunge_timer := 0.0
@@ -55,9 +60,61 @@ func _ready():
 		push_error("BOSS: No player found! Make sure player is in 'player' group!")
 		return
 	
+	# Setup animation player
+	setup_animation_player()
+	
 	add_to_group("boss")
 	setup_basic_collision()
 	setup_basic_mesh()
+	
+	# Start with idle animation
+	play_animation("IDLE")
+
+func setup_animation_player():
+	animation_player = get_node_or_null("AnimationPlayer")
+	if not animation_player:
+		push_warning("BOSS: No AnimationPlayer found as child! Animations will not work.")
+	else:
+		print("BOSS: AnimationPlayer found and connected!")
+
+func play_animation(state_name: String, force: bool = false):
+	if not animation_player:
+		return
+	
+	var animation_name = ""
+	
+	match state_name:
+		"IDLE", "IN_RANGE":
+			animation_name = "RESET"  # or whatever your idle animation is called
+		"HUNTING":
+			# Choose between Walk and Run based on speed/rage
+			if health < max_health * 0.3 or consecutive_retreats > 2:
+				animation_name = "Run"
+			else:
+				animation_name = "Walk"
+		"TELEGRAPHING":
+			animation_name = "RESET"  # Brief pause before attack
+		"ATTACKING":
+			animation_name = "Attack"
+		"CHARGING LUNGE":
+			animation_name = "charge"
+		"AIMING":
+			animation_name = "charge"  # Continue charge animation
+		"LUNGING!":
+			animation_name = "lunge"
+		"RECOVERING":
+			animation_name = "RESET"  # Back to idle pose
+		"DEAD":
+			animation_name = "RESET"  # Could add death animation later
+	
+	# Only change animation if it's different (unless forced)
+	if force or current_animation != animation_name:
+		current_animation = animation_name
+		
+		if animation_player.has_animation(animation_name):
+			animation_player.play(animation_name)
+		else:
+			push_warning("BOSS: Animation '" + animation_name + "' not found!")
 
 func setup_basic_collision():
 	if not has_node("CollisionShape3D"):
@@ -81,8 +138,6 @@ func setup_basic_mesh():
 		mesh_instance.material_override = material
 		
 		add_child(mesh_instance)
-
-
 
 func _physics_process(delta):
 	if not player:
@@ -140,6 +195,7 @@ func handle_lunge_state_machine(delta: float):
 
 func handle_charging_state():
 	current_state = "CHARGING LUNGE"
+	play_animation(current_state)
 	
 	# Stop all movement during charge
 	velocity.x = 0
@@ -159,6 +215,7 @@ func handle_charging_state():
 
 func handle_aiming_state():
 	current_state = "AIMING"
+	play_animation(current_state)
 	
 	# Still don't move during aiming
 	velocity.x = 0
@@ -180,6 +237,7 @@ func handle_aiming_state():
 
 func handle_lunging_state(delta: float):
 	current_state = "LUNGING!"
+	play_animation(current_state)
 	
 	# Fly towards and past the target at high speed
 	velocity.x = lunge_direction.x * lunge_speed
@@ -208,6 +266,7 @@ func handle_lunging_state(delta: float):
 
 func handle_recovery_state():
 	current_state = "RECOVERING"
+	play_animation(current_state)
 	
 	# Stay still during recovery
 	velocity.x = 0
@@ -269,6 +328,7 @@ func start_dramatic_lunge():
 func simple_ai_behavior(distance: float, delta: float):
 	if distance > attack_distance:
 		current_state = "HUNTING"
+		play_animation(current_state)
 		
 		var target_position = player.global_position
 		
@@ -306,6 +366,7 @@ func simple_ai_behavior(distance: float, delta: float):
 		
 	else:
 		current_state = "IN_RANGE"
+		play_animation(current_state)
 		velocity.x = 0
 		velocity.z = 0
 		
@@ -314,16 +375,20 @@ func simple_ai_behavior(distance: float, delta: float):
 			actual_cooldown = 1.2
 		
 		if attack_cooldown <= 0:
-			if current_state != "TELEGRAPHING":
+			if not is_telegraphing:
 				current_state = "TELEGRAPHING"
+				play_animation(current_state)
+				is_telegraphing = true
 				attack_cooldown = 0.3
 				return
 			
 			perform_simple_attack()
+			is_telegraphing = false
 			attack_cooldown = actual_cooldown
 
 func perform_simple_attack():
 	current_state = "ATTACKING"
+	play_animation(current_state, true)  # Force the attack animation
 	attack_cooldown = 2.0
 	
 	# Flash red to show attack
@@ -341,6 +406,14 @@ func perform_simple_attack():
 		player.take_damage(damage)
 	else:
 		push_warning("Player doesn't have take_damage method!")
+	
+	# Wait for attack animation to finish before returning to idle
+	if animation_player and animation_player.has_animation("Attack"):
+		var attack_length = animation_player.get_animation("Attack").length
+		await get_tree().create_timer(attack_length * 0.8).timeout  # Slightly shorter than full animation
+		if current_state == "ATTACKING":  # Make sure we're still in attack state
+			current_state = "IN_RANGE"
+			play_animation(current_state)
 
 # === DAMAGE AND DEATH SYSTEM ===
 func take_damage(amount: float):
@@ -368,6 +441,7 @@ func die():
 	
 	current_state = "DEAD"
 	lunge_state = "NONE"
+	play_animation(current_state)
 	
 	# Simple death - fall over
 	rotation.z = deg_to_rad(90)

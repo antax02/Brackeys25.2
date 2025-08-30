@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bdp3unljhlld8"
-path="res://.godot/imported/Racoon-rigged-boss.glb-7092c7763c2d5fead8c4efb91458cc4e.scn"
+path="res://.godot/imported/Racoon-rigged-boss.glb-47c0296eddfecc20aef20f4ce55b0b52.scn"
 
 [deps]
 
-source_file="res://Scenes/Racoon-rigged-boss.glb"
-dest_files=["res://.godot/imported/Racoon-rigged-boss.glb-7092c7763c2d5fead8c4efb91458cc4e.scn"]
+source_file="res://Assets/Models/racoon/Racoon-rigged-boss.glb"
+dest_files=["res://.godot/imported/Racoon-rigged-boss.glb-47c0296eddfecc20aef20f4ce55b0b52.scn"]
 
 [params]
 
